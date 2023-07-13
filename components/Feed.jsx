@@ -1,7 +1,8 @@
 "use client";
 
 import { PromptCard } from "@components/PromptCard";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
+import { useRouter } from "next/router";
 
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
@@ -11,8 +12,9 @@ const Feed = () => {
   const PromptCardList = () => {
     return (
       <div className="mt-16 prompt_layout">
-        {filteredPosts.length === 0 || posts.length >= 1
-          ? posts.map((item, index) => <PromptCard post={item} key={index} />)
+        {filteredPosts.length === 0
+          ? posts &&
+            posts.map((item, index) => <PromptCard post={item} key={index} />)
           : filteredPosts.map((item, index) => (
               <PromptCard post={item} key={index} />
             ))}
@@ -20,7 +22,6 @@ const Feed = () => {
     );
   };
 
-  
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch("/api/prompt");
