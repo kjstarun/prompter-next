@@ -1,8 +1,7 @@
 "use client";
 
 import { PromptCard } from "@components/PromptCard";
-import {useEffect, useState} from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
@@ -29,6 +28,7 @@ const Feed = () => {
       setPosts(data);
     };
     fetchPosts();
+    console.log(posts);
   }, []);
 
   useEffect(() => {
