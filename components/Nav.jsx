@@ -34,7 +34,7 @@ export const Nav = () => {
       </Link>
 
       {/* Desktop */}
-      {console.log("pro", session)}
+      {/* {console.log("pro", session)} */}
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap md:gap-5">

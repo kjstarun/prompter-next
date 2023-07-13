@@ -1,4 +1,3 @@
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { PromptCard } from "./PromptCard";
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
@@ -13,8 +12,6 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
       <p className="desc text-left">{desc}</p>
 
       <div className="mt-10 prompt_layout">
-        {/* <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-          <Masonry columnsCount={3} className="promptCard-wrapper"> */}
         {data &&
           data.map((post, index) => (
             <PromptCard
@@ -24,8 +21,6 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
               handleDelete={() => handleDelete && handleDelete(post)}
             />
           ))}
-        {/* </Masonry>
-        </ResponsiveMasonry> */}
       </div>
     </section>
   );
