@@ -13,7 +13,7 @@ const Feed = () => {
   const PromptCardList = () => {
     return (
       <div className="mt-16 prompt_layout">
-        {filteredPosts.length === 0 || posts.length >= 1
+        {filteredPosts.length === 0
           ? posts.map((item, index) => <PromptCard post={item} key={index} />)
           : filteredPosts.map((item, index) => (
               <PromptCard post={item} key={index} />
