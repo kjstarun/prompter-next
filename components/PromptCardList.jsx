@@ -1,4 +1,5 @@
-const PromptCardList = ({ posts }) => {
+const PromptCardList = ({posts}) => {
+    console.log("hello from propmtcardlist")
   return (
     <div className="mt-16 prompt_layout">
       {posts &&
