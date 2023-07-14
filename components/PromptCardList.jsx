@@ -1,7 +1,7 @@
 "use client";
 
-const PromptCardList = () => {
-  console.log("hello from propmtcardlist", posts);
+const PromptCardList = ({data}) => {
+  console.log("hello from propmtcardlist", data);
   return (
     <div className="mt-16 prompt_layout">
       {posts &&
