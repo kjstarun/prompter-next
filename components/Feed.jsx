@@ -10,8 +10,7 @@ const Feed = () => {
 
   let searchText = "";
 
-  const PromptCardList = ({ data }) => {
-    console.log("ddddd", data);
+  const PromptCardList = ({posts}) => {
     return (
       <div className="mt-16 prompt_layout">
         {posts &&
