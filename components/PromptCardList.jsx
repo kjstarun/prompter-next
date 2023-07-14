@@ -1,3 +1,6 @@
+"use client"
+
+
 const PromptCardList = ({posts}) => {
     console.log("hello from propmtcardlist")
   return (
