@@ -8,6 +8,8 @@ const Feed = () => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
 
+  console.log("navigation");
+
   const PromptCardList = () => {
     return (
       <div className="mt-16 prompt_layout">
@@ -20,13 +22,13 @@ const Feed = () => {
     );
   };
 
-  const fetchPosts = async () => {
-    const response = await fetch("/api/prompt");
-    const data = await response.json();
-    console.log("data", data);
-    setPosts(data);
-  };
   useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/api/prompt");
+      const data = await response.json();
+      console.log("data", data.message);
+      setPosts(data.message);
+    };
     fetchPosts();
   }, []);
 

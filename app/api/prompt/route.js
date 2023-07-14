@@ -6,7 +6,10 @@ export const GET = async (req) => {
   try {
     await connectDB();
     const prompts = await Prompt.find({}).populate("creator");
-    return new Response(JSON.stringify(prompts));
+    return NextResponse.json({
+      message: prompts,
+      ok: true,
+    });
   } catch (error) {
     return NextResponse.json({
       message: error,

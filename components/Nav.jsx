@@ -120,8 +120,8 @@ export const Nav = () => {
                     type="button"
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
-                    className="black_btn">
-                    Sign in
+                    className="black_btn_sign_in">
+                    Sign in with Google
                   </button>
                 );
               })}
