@@ -16,9 +16,9 @@ const Feed = () => {
     const result = await (await res.GET()).json();
     // const response = await fetch("/api/prompt");
     // const data = await response.json();
-    console.log("data", result.message);
     // setPosts(data.message);
     posts = result.message;
+    console.log("data",posts);
     return <PromptCardList data={posts} />;
   };
   // }, []);
