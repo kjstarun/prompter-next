@@ -1,6 +1,7 @@
 // "use client";
 
 import { PromptCard } from "@components/PromptCard";
+import PromptCardList from "./PromptCardList.jsx";
 // import { useEffect, useState } from "react";
 
 const Feed = () => {
