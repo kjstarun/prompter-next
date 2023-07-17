@@ -1,57 +1,85 @@
-// "use client";
+"use client";
 
 import { PromptCard } from "@components/PromptCard";
-import PromptCardList from "./PromptCardList.jsx";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Feed = () => {
-  // const [searchText, setSearchText] = useState("");
-  // const [posts, setPosts] = useState([]);
-  // const [filteredPosts, setFilteredPosts] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
-  // useEffect(() => {
-  let posts = [];
-  const fetchPosts = async () => {
-    const res = await import("../app/api/prompt/route.js");
-    const result = await (await res.GET()).json();
-    // const response = await fetch("/api/prompt");
-    // const data = await response.json();
-    // setPosts(data.message);
-    posts = result.message;
-    console.log("data",posts);
-    return <PromptCardList data={posts} />;
+  console.log("navigation");
+
+  const PromptCardList = () => {
+    return (
+      <div className="mt-16 prompt_layout">
+        {filteredPosts.length === 0
+          ? posts.map((item, index) => (
+              <PromptCard
+                post={item}
+                key={index}
+                handleTagClick={handleTagClick}
+              />
+            ))
+          : filteredPosts.map((item, index) => (
+              <PromptCard
+                post={item}
+                key={index}
+                handleTagClick={handleTagClick}
+              />
+            ))}
+      </div>
+    );
   };
-  // }, []);
+
+  const handleTagClick = (tagName) => {
+    console.log("tag", tagName);
+    setSearchText("");
+    setSearchText(tagName);
+  };
+
+  const fetchPosts = async () => {
+    const response = await fetch("/api/prompt");
+    const data = await response.json();
+    console.log("data", data.message);
+    setPosts(data.message);
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
   console.log("hello", posts);
-  // useEffect(() => {
-  //   const filtered = posts.filter(
-  //     (post) =>
-  //       post.creator.username.includes(searchText) ||
-  //       post.tag.includes(searchText) ||
-  //       post.prompt.includes(searchText)
-  //   );
-  //   setFilteredPosts([...filtered]);
-  // }, [searchText]);
+  useEffect(() => {
+    console.log(searchText);
+    const filtered = posts.filter(
+      (post) =>
+        post.creator.username.includes(searchText) ||
+        post.tag.includes(searchText) ||
+        post.prompt.includes(searchText)
+    );
+    console.log("filetrF", filtered);
+    setFilteredPosts([...filtered]);
+  }, [searchText]);
 
   return (
     <section className="feed">
-      <form className="relative w-full flex-center">
+      <form className="relative w-full flex-center" onLoad={fetchPosts}>
         <input
           type="text"
           placeholder="Search for a tag or a username"
-          // value={searchText}
-          // onChange={(e) => setSearchText(e.target.value)}
+          value={searchText || ""}
+          onChange={(e) => setSearchText(e.target.value)}
           required
           className="search_input input"
         />
       </form>
-      {fetchPosts()}
-      {/* {searchText ? (
+
+      {searchText ? (
         <PromptCardList data={filteredPosts} />
-        ) : (
+      ) : (
         <PromptCardList data={posts} />
-      )} */}
+      )}
     </section>
   );
 };
