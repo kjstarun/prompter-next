@@ -10,8 +10,8 @@ If deployed URL is not working, please clone the repo.
 Add a env file with your GCP credentials.
 
 Run the following commands,
-- npm install
-- npm run dev
+- `npm install`
+- `npm run dev`
 
 Hit http://localhost:3000/ on your browser.
 
