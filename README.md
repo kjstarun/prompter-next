@@ -15,6 +15,8 @@ Run the following commands,
 
 Hit http://localhost:3000/ on your browser.
 
+Find the attached working demo at below of the document
+
 Work flow:
 
 1. A user can login using their gmail credentials.
@@ -42,3 +44,10 @@ Page flow:
 4. Update-prompt: To update prompt
 
 5. Loader: You'll see a loader revolving around the pages while the API request is in progress.
+
+
+
+Here is the working video of the webpage.
+
+https://github.com/kjstarun/prompter-next/assets/103061882/68c9d87e-84ec-4309-8e9b-375e03657ca6
+
