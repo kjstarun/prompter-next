@@ -5,8 +5,8 @@ import { NextResponse } from "next/server";
 export const GET = async (req) => {
   try {
     await connectDB();
-    const prompts = await Prompt.find({}).populate("creator");
-    console.log("get called")
+    const prompts = await Prompt.find().populate("creator");
+    console.log("get called");
     return NextResponse.json({
       message: prompts,
       ok: true,
