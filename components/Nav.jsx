@@ -57,7 +57,7 @@ export const Nav = () => {
         ) : (
           <>
             {providers &&
-              Object.values(providers).map((provider) => {
+              Object.values(providers)?.map((provider) => {
                 return (
                   <button
                     type="button"
@@ -114,7 +114,7 @@ export const Nav = () => {
         ) : (
           <>
             {providers &&
-              Object.values(providers).map((provider) => {
+              Object.values(providers)?.map((provider) => {
                 return (
                   <button
                     type="button"
